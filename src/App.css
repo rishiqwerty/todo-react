@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.tasks{
+  background-color: #a9acb1;
+  border-radius: 2em;
+  margin: 0 20vw;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.task p {
+  padding: 20px 30px
+}
