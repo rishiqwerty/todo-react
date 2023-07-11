@@ -1,5 +1,9 @@
+*{
+  font-family: cursive;
+}
 .App {
   text-align: center;
+  margin: 0 20vw;
 }
 
 .App-logo {
@@ -40,14 +44,51 @@
 .tasks{
   background-color: #a9acb1;
   border-radius: 2em;
-  margin: 0 20vw;
+  
 }
 
 .task {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 .task p {
-  padding: 20px 30px
+  padding: 20px 20px;
+  width: 45%;
+}
+#completed {
+  margin: 0 10px;
+}
+.buttons {
+  width: 30%;
+  margin-right: 40px;
+}
+.Notes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+button{
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  border-radius: 3.14em;
+}
+.Notes > button{
+  width: 30%;
+  padding: 10px 20px;
+}
+input {
+  border: none;
+  color: black;
+  border-radius: 4em;
+  width: 65%;
+  padding-left: 10px;
+}
+.invalid-input{
+  border: 1px solid red;
+}
+#logo{
+  width:100px;
 }

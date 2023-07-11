@@ -20,7 +20,12 @@ function Todo() {
     return (
         <>
             <div className="tasks">
-                {tasks.map((task,index) => (<div className="task"><p>{task.task}</p>{task.completed ? <b>Done</b> : <b></b>}<button onClick={()=>completed(index)}>Completed</button><button onClick={()=>removeTask(index)}>Delete</button></div>))}
+                {tasks.map((task,index) => (<div className="task"><p>{task.task}</p>{task.completed ? <b>Done</b> : <b></b>}
+                    <div className="buttons">
+                        <button id="completed" onClick={()=>completed(index)}>Completed</button>
+                        <button onClick={()=>removeTask(index)}>X</button>
+                    </div>
+                </div>))}
             </div>
             <CreateNotes addNotes={addNotes}/>
         </>
@@ -29,14 +34,26 @@ function Todo() {
 
 
 function CreateNotes({ addNotes }) {
-    const [value, setValue] = useState('') 
+    const [value, setValue] = useState('');
+    const [isInputInvalid, setIsInputInvalid] = useState(false);
     function createNote(event) {
         event.preventDefault()
-        addNotes(value)
+        if (value !== ""){
+            addNotes(value)
+            setValue('')
+        }
+        else{
+            setIsInputInvalid(true);
+        }
+    }
+    function handleKeypress(event){
+        if (event.keyCode === 13){
+            createNote(event)
+        }
     }
     return (
     <div className="Notes">
-      <input value={value} onChange={e => setValue(e.target.value)}></input>
+      <input className= {isInputInvalid ? 'invalid-input' : ''} placeholder={isInputInvalid ? 'Please Enter Something' : 'Create a Task'} value={value} onKeyDown={handleKeypress} onChange={e => setValue(e.target.value)}></input>
       <button onClick={createNote}>Submit</button>
     </div>
   );
